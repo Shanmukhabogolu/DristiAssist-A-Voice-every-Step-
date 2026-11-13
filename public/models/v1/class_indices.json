@@ -1,0 +1,8 @@
+{
+  "clear_path": 0,
+  "open_drain": 1,
+  "pothole": 2,
+  "rough_or_debris": 3,
+  "stairs": 4,
+  "wet_or_slippery": 5
+}

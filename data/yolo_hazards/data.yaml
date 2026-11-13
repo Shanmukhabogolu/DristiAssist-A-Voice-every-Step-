@@ -1,0 +1,14 @@
+path: /app/applet/data/yolo_hazards
+train: images/train
+val: images/val
+
+names:
+  0: pothole
+  1: open_drain
+  2: stairs
+  3: pole
+  4: street_light
+  5: vehicle
+  6: animal
+  7: person
+  8: barrier

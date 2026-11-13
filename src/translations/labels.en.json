@@ -1,0 +1,18 @@
+{
+  "NonDemented": {
+    "display": "Non-Demented (Normal)",
+    "speech": "No dementia detected. Brain scan appears normal."
+  },
+  "VeryMildDemented": {
+    "display": "Very Mild Cognitive Changes",
+    "speech": "Very mild cognitive changes detected. Routine clinical review advised."
+  },
+  "MildDemented": {
+    "display": "Mild Impairment",
+    "speech": "Mild impairment detected. Professional clinical evaluation recommended."
+  },
+  "ModerateDemented": {
+    "display": "Moderate Impairment",
+    "speech": "Moderate impairment detected. Dedicated medical consultation required."
+  }
+}

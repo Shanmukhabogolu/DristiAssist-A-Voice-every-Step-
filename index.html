@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Zero-Flash Pre-Paint Theme Injection -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('drishti_theme');
+          var theme = saved === 'classic' || saved === 'contrast' ? saved : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          var reducedMotion = localStorage.getItem('drishti_reduced_motion');
+          if (reducedMotion === 'true') {
+            document.documentElement.setAttribute('data-reduced-motion', 'true');
+          }
+        } catch (e) {}
+
+        // Intercept Vite HMR WebSocket in AI Studio iframe dev mode where HMR is disabled
+        try {
+          var OriginalWebSocket = window.WebSocket;
+          if (OriginalWebSocket) {
+            function MockViteHmrWebSocket(url, protocols) {
+              var self = this;
+              this.url = url;
+              this.protocols = protocols;
+              this.readyState = 1; // WebSocket.OPEN
+              this.binaryType = 'blob';
+              this.bufferedAmount = 0;
+              this.extensions = '';
+              this.protocol = 'vite-hmr';
+              
+              var listeners = {};
+
+              this.addEventListener = function(event, callback) {
+                if (!listeners[event]) listeners[event] = [];
+                listeners[event].push(callback);
+                if (event === 'open') {
+                  setTimeout(function() {
+                    try { callback({ type: 'open', target: self }); } catch (e) {}
+                  }, 0);
+                }
+              };
+
+              this.removeEventListener = function(event, callback) {
+                if (!listeners[event]) return;
+                listeners[event] = listeners[event].filter(function(cb) { return cb !== callback; });
+              };
+
+              this.dispatchEvent = function(event) {
+                var cbs = listeners[event.type] || [];
+                for (var i = 0; i < cbs.length; i++) {
+                  try { cbs[i](event); } catch (e) {}
+                }
+                return true;
+              };
+
+              this.send = function() {};
+              this.close = function() {
+                self.readyState = 3;
+                var closeCbs = listeners['close'] || [];
+                for (var i = 0; i < closeCbs.length; i++) {
+                  try { closeCbs[i]({ type: 'close', wasClean: true, code: 1000, reason: 'Normal' }); } catch (e) {}
+                }
+              };
+
+              setTimeout(function() {
+                if (typeof self.onopen === 'function') {
+                  try { self.onopen({ type: 'open', target: self }); } catch (e) {}
+                }
+              }, 0);
+            }
+
+            MockViteHmrWebSocket.CONNECTING = 0;
+            MockViteHmrWebSocket.OPEN = 1;
+            MockViteHmrWebSocket.CLOSING = 2;
+            MockViteHmrWebSocket.CLOSED = 3;
+
+            window.WebSocket = function(url, protocols) {
+              var isViteHmr = false;
+              if (protocols === 'vite-hmr') isViteHmr = true;
+              else if (Array.isArray(protocols) && protocols.indexOf('vite-hmr') !== -1) isViteHmr = true;
+              else if (typeof url === 'string' && (url.indexOf('vite-hmr') !== -1 || (protocols && String(protocols).indexOf('vite-hmr') !== -1))) isViteHmr = true;
+
+              if (isViteHmr) {
+                return new MockViteHmrWebSocket(url, protocols);
+              }
+              return new OriginalWebSocket(url, protocols);
+            };
+
+            window.WebSocket.CONNECTING = 0;
+            window.WebSocket.OPEN = 1;
+            window.WebSocket.CLOSING = 2;
+            window.WebSocket.CLOSED = 3;
+            window.WebSocket.prototype = OriginalWebSocket.prototype;
+          }
+        } catch (e) {}
+
+        // Defense-in-depth: Suppress any residual Vite HMR WebSocket connection closures
+        try {
+          var isWsError = function(str) {
+            if (!str) return false;
+            var s = String(str);
+            return s.indexOf('WebSocket closed without opened') !== -1 ||
+                   (s.indexOf('WebSocket') !== -1 && s.indexOf('closed') !== -1);
+          };
+
+          var origConsoleError = console.error;
+          console.error = function() {
+            var fullMessage = '';
+            for (var i = 0; i < arguments.length; i++) {
+              var arg = arguments[i];
+              fullMessage += ' ' + (arg && arg.message ? arg.message : String(arg));
+              if (isWsError(arg) || (arg && isWsError(arg.message)) || (arg && isWsError(arg.stack))) return;
+            }
+            if (isWsError(fullMessage)) return;
+            origConsoleError.apply(console, arguments);
+          };
+
+          var origOnError = window.onerror;
+          window.onerror = function(msg, url, lineNo, columnNo, error) {
+            if (isWsError(msg) || (error && isWsError(error.message))) {
+              return true;
+            }
+            if (origOnError) return origOnError.apply(this, arguments);
+            return false;
+          };
+
+          window.addEventListener('error', function(e) {
+            if (isWsError(e.message) || (e.error && isWsError(e.error.message))) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return true;
+            }
+          }, true);
+
+          window.addEventListener('unhandledrejection', function(e) {
+            var reason = e ? (e.reason || e) : null;
+            var msg = reason && reason.message ? reason.message : String(reason);
+            if (isWsError(msg)) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+            }
+          }, true);
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>DrishtiAssist - Accessible Real-Time Hazard Detection</title>
+    <meta name="description" content="On-device real-time hazard detection, sign reading, and scene description in English and Hindi for blind and low-vision individuals." />
+    <meta property="og:title" content="DrishtiAssist - Accessible Real-Time Hazard Detection" />
+    <meta property="og:description" content="On-device real-time hazard detection, sign reading, and scene description in English and Hindi for blind and low-vision individuals." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#FAFAF7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Drishti" />
+    <link rel="icon" type="image/jpeg" href="/assets/aistudio/DA_d64034e2.jpeg" />
+    <link rel="apple-touch-icon" href="/assets/aistudio/DA_d64034e2.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Jost:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Serif+Telugu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  </head>
+  <body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

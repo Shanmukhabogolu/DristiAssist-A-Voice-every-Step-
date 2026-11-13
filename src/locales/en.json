@@ -1,0 +1,110 @@
+{
+  "_metadata": {
+    "locale": "en",
+    "language": "English",
+    "nativeName": "English",
+    "marked_for_native_review": false,
+    "review_status": "verified"
+  },
+  "needs_review": false,
+  "hero": {
+    "headline": "Hear what is in your path.",
+    "sub": "Point your phone ahead. The app warns you by voice about potholes, stairs, poles and vehicles.",
+    "openApp": "Open the app",
+    "seeHowItWorks": "See how it works",
+    "factsLine": "Works offline · Private by default · English, हिंदी, తెలుగు"
+  },
+  "howItWorks": {
+    "label": "01 / How it works",
+    "title": "Three steps, no setup.",
+    "step1Title": "1. Hold it forward",
+    "step1Desc": "Keep your phone at chest height with the camera facing ahead.",
+    "step2Title": "2. It checks the view",
+    "step2Desc": "The app looks at the left, centre and right, on your phone.",
+    "step3Title": "3. You listen",
+    "step3Desc": "You hear short warnings, most urgent first, such as \"Pothole, left.\""
+  },
+  "hazard_classes": {
+    "pothole": "Pothole",
+    "open_drain": "Open drain",
+    "stairs": "Stairs",
+    "pole": "Pole or barrier",
+    "vehicle": "Vehicle",
+    "animal": "Animal",
+    "person": "Person",
+    "clear_path": "Clear path"
+  },
+  "privacy": {
+    "label": "03 / Privacy and safety",
+    "privacyTitle": "Privacy",
+    "privacyDesc": "Your camera stays on your phone. Video is processed on the device. Nothing is recorded or uploaded unless you choose to share a photo to help improve the app.",
+    "safetyTitle": "Safety",
+    "safetyDesc": "An aid, not a replacement. Keep using your white cane or guide. Do not rely on this app alone to cross roads.",
+    "readDetails": "Read the details"
+  },
+  "strings": {
+    "hero.headline": { "value": "Hear what is in your path.", "text": "Hear what is in your path.", "needs_review": false },
+    "hero.sub": { "value": "Point your phone ahead. The app warns you by voice about potholes, stairs, poles and vehicles.", "text": "Point your phone ahead. The app warns you by voice about potholes, stairs, poles and vehicles.", "needs_review": false },
+    "hero.openApp": { "value": "Open the app", "text": "Open the app", "needs_review": false },
+    "hero.seeHowItWorks": { "value": "See how it works", "text": "See how it works", "needs_review": false },
+    "hero.factsLine": { "value": "Works offline · Private by default · English, हिंदी, తెలుగు", "text": "Works offline · Private by default · English, हिंदी, తెలుగు", "needs_review": false },
+    "howItWorks.label": { "value": "01 / How it works", "text": "01 / How it works", "needs_review": false },
+    "howItWorks.title": { "value": "Three steps, no setup.", "text": "Three steps, no setup.", "needs_review": false },
+    "howItWorks.step1Title": { "value": "1. Hold it forward", "text": "1. Hold it forward", "needs_review": false },
+    "howItWorks.step1Desc": { "value": "Keep your phone at chest height with the camera facing ahead.", "text": "Keep your phone at chest height with the camera facing ahead.", "needs_review": false },
+    "howItWorks.step2Title": { "value": "2. It checks the view", "text": "2. It checks the view", "needs_review": false },
+    "howItWorks.step2Desc": { "value": "The app looks at the left, centre and right, on your phone.", "text": "The app looks at the left, centre and right, on your phone.", "needs_review": false },
+    "howItWorks.step3Title": { "value": "3. You listen", "text": "3. You listen", "needs_review": false },
+    "howItWorks.step3Desc": { "value": "You hear short warnings, most urgent first, such as \"Pothole, left.\"", "text": "You hear short warnings, most urgent first, such as \"Pothole, left.\"", "needs_review": false },
+    "hazard_classes.pothole": { "value": "Pothole", "text": "Pothole", "needs_review": false },
+    "hazard_classes.open_drain": { "value": "Open drain", "text": "Open drain", "needs_review": false },
+    "hazard_classes.stairs": { "value": "Stairs", "text": "Stairs", "needs_review": false },
+    "hazard_classes.pole": { "value": "Pole or barrier", "text": "Pole or barrier", "needs_review": false },
+    "hazard_classes.vehicle": { "value": "Vehicle", "text": "Vehicle", "needs_review": false },
+    "hazard_classes.animal": { "value": "Animal", "text": "Animal", "needs_review": false },
+    "hazard_classes.person": { "value": "Person", "text": "Person", "needs_review": false },
+    "hazard_classes.clear_path": { "value": "Clear path", "text": "Clear path", "needs_review": false },
+    "privacy.label": { "value": "03 / Privacy and safety", "text": "03 / Privacy and safety", "needs_review": false },
+    "privacy.privacyTitle": { "value": "Privacy", "text": "Privacy", "needs_review": false },
+    "privacy.privacyDesc": { "value": "Your camera stays on your phone. Video is processed on the device. Nothing is recorded or uploaded unless you choose to share a photo to help improve the app.", "text": "Your camera stays on your phone. Video is processed on the device. Nothing is recorded or uploaded unless you choose to share a photo to help improve the app.", "needs_review": false },
+    "privacy.safetyTitle": { "value": "Safety", "text": "Safety", "needs_review": false },
+    "privacy.safetyDesc": { "value": "An aid, not a replacement. Keep using your white cane or guide. Do not rely on this app alone to cross roads.", "text": "An aid, not a replacement. Keep using your white cane or guide. Do not rely on this app alone to cross roads.", "needs_review": false },
+    "privacy.readDetails": { "value": "Read the details", "text": "Read the details", "needs_review": false }
+  },
+  "steps": {
+    "label": "01 / How it works",
+    "title": "Three steps, no setup.",
+    "step1Title": "1. Hold it forward",
+    "step1Desc": "Keep your phone at chest height with the camera facing ahead.",
+    "step2Title": "2. It checks the view",
+    "step2Desc": "The app looks at the left, centre and right, on your phone.",
+    "step3Title": "3. You listen",
+    "step3Desc": "You hear short warnings, most urgent first, such as \"Pothole, left.\""
+  },
+  "hazards": {
+    "pothole": "Pothole",
+    "open_drain": "Open drain",
+    "stairs": "Stairs",
+    "pole": "Pole or barrier",
+    "vehicle": "Vehicle",
+    "animal": "Animal",
+    "person": "Person",
+    "clear_path": "Clear path"
+  },
+  "privacy_statements": {
+    "label": "03 / Privacy and safety",
+    "privacyTitle": "Privacy",
+    "privacyDesc": "Your camera stays on your phone. Video is processed on the device. Nothing is recorded or uploaded unless you choose to share a photo to help improve the app.",
+    "safetyTitle": "Safety",
+    "safetyDesc": "An aid, not a replacement. Keep using your white cane or guide. Do not rely on this app alone to cross roads.",
+    "readDetails": "Read the details"
+  },
+  "appName": "DrishtiAssist",
+  "tagline": "Accessible on-device hazard detection for blind pedestrians",
+  "zones": {
+    "left": "Left",
+    "center": "Centre",
+    "right": "Right"
+  },
+  "lowConfidence": "Not sure, use your cane carefully."
+}

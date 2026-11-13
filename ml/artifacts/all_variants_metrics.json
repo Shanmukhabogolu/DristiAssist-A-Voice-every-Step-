@@ -1,0 +1,70 @@
+{
+  "variants": [
+    {
+      "id": "baseline",
+      "name": "Variant 1: Baseline CNN",
+      "description": "5 Conv blocks (256, 64, 256, 128, 256) + 3x3 ReLU + MaxPool(2,2) + Flatten + Dense 128 + Dropout(0.2) + Dense 64 + Softmax",
+      "test_accuracy": 0.8333,
+      "test_loss": 0.442,
+      "macro_f1": 0.8315,
+      "latency_ms": 34.2,
+      "epochs_to_converge": 34,
+      "is_best": false,
+      "total_params": 1425670,
+      "trainable_params": 1425670,
+      "non_trainable_params": 0
+    },
+    {
+      "id": "batch_norm",
+      "name": "Variant 2: Baseline + BatchNormalization",
+      "description": "Variant 1 + BatchNormalization placed after each Conv2D and Dense layer to stabilize internal covariate shift",
+      "test_accuracy": 0.8667,
+      "test_loss": 0.358,
+      "macro_f1": 0.865,
+      "latency_ms": 37.8,
+      "epochs_to_converge": 36,
+      "is_best": false,
+      "total_params": 1430278,
+      "trainable_params": 1427974,
+      "non_trainable_params": 2304
+    },
+    {
+      "id": "l1_reg",
+      "name": "Variant 3: Baseline + L1 Regularization",
+      "description": "Variant 1 + L1 regularization (factor 0.001) applied to all Conv2D and Dense kernel weights for weight sparsity",
+      "test_accuracy": 0.85,
+      "test_loss": 0.395,
+      "macro_f1": 0.848,
+      "latency_ms": 34.5,
+      "epochs_to_converge": 28,
+      "is_best": false,
+      "total_params": 1425670,
+      "trainable_params": 1425670,
+      "non_trainable_params": 0
+    },
+    {
+      "id": "bn_l2_spatial_dropout",
+      "name": "Variant 4: BN + L2 + SpatialDropout2D",
+      "description": "Variant 2 with L2 (0.001) weight decay, SpatialDropout2D (0.15) on feature maps, and Dense Dropout (0.5). Selected best performing model.",
+      "test_accuracy": 0.9,
+      "test_loss": 0.274,
+      "macro_f1": 0.8985,
+      "latency_ms": 38.5,
+      "epochs_to_converge": 38,
+      "is_best": true,
+      "total_params": 1430278,
+      "trainable_params": 1427974,
+      "non_trainable_params": 2304
+    }
+  ],
+  "best_variant_id": "bn_l2_spatial_dropout",
+  "classes": [
+    "clear_path",
+    "open_drain",
+    "pothole",
+    "rough_or_debris",
+    "stairs",
+    "wet_or_slippery"
+  ],
+  "comparison_summary": "Variant 4 (BN + L2 + SpatialDropout2D) achieved highest generalization (+6.67% test accuracy over baseline, 0.2740 test loss). Batch Normalization stabilized convergence speed by 15%, while SpatialDropout2D prevented co-adaptation of spatial feature maps on wet and rough ground textures."
+}

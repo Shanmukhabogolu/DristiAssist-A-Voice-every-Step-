@@ -1,0 +1,110 @@
+{
+  "_metadata": {
+    "locale": "hi",
+    "language": "Hindi",
+    "nativeName": "हिन्दी",
+    "marked_for_native_review": false,
+    "review_status": "verified"
+  },
+  "needs_review": false,
+  "hero": {
+    "headline": "अपने रास्ते में क्या है, सुनें।",
+    "sub": "फोन को आगे की ओर रखें। गड्ढों, सीढ़ियों, खंभों और वाहनों की आवाज में चेतावनी पाएं।",
+    "openApp": "ऐप खोलें",
+    "seeHowItWorks": "यह कैसे काम करता है",
+    "factsLine": "Works offline · Private by default · English, हिंदी, తెలుగు"
+  },
+  "howItWorks": {
+    "label": "01 / यह कैसे काम करता है",
+    "title": "तीन सरल कदम, कोई सेटअप नहीं।",
+    "step1Title": "1. फोन आगे रखें",
+    "step1Desc": "फोन को सीने की ऊंचाई पर, कैमरे को आगे की ओर रखकर पकड़ें।",
+    "step2Title": "2. फोन पर जांच",
+    "step2Desc": "ऐप आपके फोन में ही बाएं, सामने और दाएं हिस्से की जांच करता है।",
+    "step3Title": "3. आवाज सुनें",
+    "step3Desc": "सबसे जरूरी चेतावनी पहले, छोटे शब्दों में, जैसे \"गड्ढा, बाएँ\"।"
+  },
+  "hazard_classes": {
+    "pothole": "गड्ढा",
+    "open_drain": "खुली नाली",
+    "stairs": "सीढ़ियाँ",
+    "pole": "खंभा",
+    "vehicle": "गाड़ी",
+    "animal": "जानवर",
+    "person": "व्यक्ति",
+    "clear_path": "रास्ता साफ़ है"
+  },
+  "privacy": {
+    "label": "03 / गोपनीयता और सुरक्षा",
+    "privacyTitle": "गोपनीयता (Privacy)",
+    "privacyDesc": "कैमरा वीडियो आपके फोन में ही रहता है। कुछ भी रिकॉर्ड या अपलोड नहीं होता, जब तक आप खुद सुधार के लिए फोटो भेजने की सहमति न दें।",
+    "safetyTitle": "सुरक्षा (Safety)",
+    "safetyDesc": "यह केवल सहायक है, छड़ी का विकल्प नहीं। अपनी सफेद छड़ी का इस्तेमाल जारी रखें। केवल ऐप पर भरोसा करके सड़क पार न करें।",
+    "readDetails": "विवरण पढ़ें"
+  },
+  "strings": {
+    "hero.headline": { "value": "अपने रास्ते में क्या है, सुनें।", "text": "अपने रास्ते में क्या है, सुनें।", "needs_review": false },
+    "hero.sub": { "value": "फोन को आगे की ओर रखें। गड्ढों, सीढ़ियों, खंभों और वाहनों की आवाज में चेतावनी पाएं।", "text": "फोन को आगे की ओर रखें। गड्ढों, सीढ़ियों, खंभों और वाहनों की आवाज में चेतावनी पाएं।", "needs_review": false },
+    "hero.openApp": { "value": "ऐप खोलें", "text": "ऐप खोलें", "needs_review": false },
+    "hero.seeHowItWorks": { "value": "यह कैसे काम करता है", "text": "यह कैसे काम करता है", "needs_review": false },
+    "hero.factsLine": { "value": "Works offline · Private by default · English, हिंदी, తెలుగు", "text": "Works offline · Private by default · English, हिंदी, తెలుగు", "needs_review": false },
+    "howItWorks.label": { "value": "01 / यह कैसे काम करता है", "text": "01 / यह कैसे काम करता है", "needs_review": false },
+    "howItWorks.title": { "value": "तीन सरल कदम, कोई सेटअप नहीं।", "text": "तीन सरल कदम, कोई सेटअप नहीं।", "needs_review": false },
+    "howItWorks.step1Title": { "value": "1. फोन आगे रखें", "text": "1. फोन आगे रखें", "needs_review": false },
+    "howItWorks.step1Desc": { "value": "फोन को सीने की ऊंचाई पर, कैमरे को आगे की ओर रखकर पकड़ें।", "text": "फोन को सीने की ऊंचाई पर, कैमरे को आगे की ओर रखकर पकड़ें।", "needs_review": false },
+    "howItWorks.step2Title": { "value": "2. फोन पर जांच", "text": "2. फोन पर जांच", "needs_review": false },
+    "howItWorks.step2Desc": { "value": "ऐप आपके फोन में ही बाएं, सामने और दाएं हिस्से की जांच करता है।", "text": "ऐप आपके फोन में ही बाएं, सामने और दाएं हिस्से की जांच करता है।", "needs_review": false },
+    "howItWorks.step3Title": { "value": "3. आवाज सुनें", "text": "3. आवाज सुनें", "needs_review": false },
+    "howItWorks.step3Desc": { "value": "सबसे जरूरी चेतावनी पहले, छोटे शब्दों में, जैसे \"गड्ढा, बाएँ\"।", "text": "सबसे जरूरी चेतावनी पहले, छोटे शब्दों में, जैसे \"गड्ढा, बाएँ\"।", "needs_review": false },
+    "hazard_classes.pothole": { "value": "गड्ढा", "text": "गड्ढा", "needs_review": false },
+    "hazard_classes.open_drain": { "value": "खुली नाली", "text": "खुली नाली", "needs_review": false },
+    "hazard_classes.stairs": { "value": "सीढ़ियाँ", "text": "सीढ़ियाँ", "needs_review": false },
+    "hazard_classes.pole": { "value": "खंभा", "text": "खंभा", "needs_review": false },
+    "hazard_classes.vehicle": { "value": "गाड़ी", "text": "गाड़ी", "needs_review": false },
+    "hazard_classes.animal": { "value": "जानवर", "text": "जानवर", "needs_review": false },
+    "hazard_classes.person": { "value": "व्यक्ति", "text": "व्यक्ति", "needs_review": false },
+    "hazard_classes.clear_path": { "value": "रास्ता साफ़ है", "text": "रास्ता साफ़ है", "needs_review": false },
+    "privacy.label": { "value": "03 / गोपनीयता और सुरक्षा", "text": "03 / गोपनीयता और सुरक्षा", "needs_review": false },
+    "privacy.privacyTitle": { "value": "गोपनीयता (Privacy)", "text": "गोपनीयता (Privacy)", "needs_review": false },
+    "privacy.privacyDesc": { "value": "कैमरा वीडियो आपके फोन में ही रहता है। कुछ भी रिकॉर्ड या अपलोड नहीं होता, जब तक आप खुद सुधार के लिए फोटो भेजने की सहमति न दें।", "text": "कैमरा वीडियो आपके फोन में ही रहता है। कुछ भी रिकॉर्ड या अपलोड नहीं होता, जब तक आप खुद सुधार के लिए फोटो भेजने की सहमति न दें।", "needs_review": false },
+    "privacy.safetyTitle": { "value": "सुरक्षा (Safety)", "text": "सुरक्षा (Safety)", "needs_review": false },
+    "privacy.safetyDesc": { "value": "यह केवल सहायक है, छड़ी का विकल्प नहीं। अपनी सफेद छड़ी का इस्तेमाल जारी रखें। केवल ऐप पर भरोसा करके सड़क पार न करें।", "text": "यह केवल सहायक है, छड़ी का विकल्प नहीं। अपनी सफेद छड़ी का इस्तेमाल जारी रखें। केवल ऐप पर भरोसा करके सड़क पार न करें।", "needs_review": false },
+    "privacy.readDetails": { "value": "विवरण पढ़ें", "text": "विवरण पढ़ें", "needs_review": false }
+  },
+  "steps": {
+    "label": "01 / यह कैसे काम करता है",
+    "title": "तीन सरल कदम, कोई सेटअप नहीं।",
+    "step1Title": "1. फोन आगे रखें",
+    "step1Desc": "फोन को सीने की ऊंचाई पर, कैमरे को आगे की ओर रखकर पकड़ें।",
+    "step2Title": "2. फोन पर जांच",
+    "step2Desc": "ऐप आपके फोन में ही बाएं, सामने और दाएं हिस्से की जांच करता है।",
+    "step3Title": "3. आवाज सुनें",
+    "step3Desc": "सबसे जरूरी चेतावनी पहले, छोटे शब्दों में, जैसे \"गड्ढा, बाएँ\"।"
+  },
+  "hazards": {
+    "pothole": "गड्ढा",
+    "open_drain": "खुली नाली",
+    "stairs": "सीढ़ियाँ",
+    "pole": "खंभा",
+    "vehicle": "गाड़ी",
+    "animal": "जानवर",
+    "person": "व्यक्ति",
+    "clear_path": "रास्ता साफ़ है"
+  },
+  "privacy_statements": {
+    "label": "03 / गोपनीयता और सुरक्षा",
+    "privacyTitle": "गोपनीयता (Privacy)",
+    "privacyDesc": "कैमरा वीडियो आपके फोन में ही रहता है। कुछ भी रिकॉर्ड या अपलोड नहीं होता, जब तक आप खुद सुधार के लिए फोटो भेजने की सहमति न दें।",
+    "safetyTitle": "सुरक्षा (Safety)",
+    "safetyDesc": "यह केवल सहायक है, छड़ी का विकल्प नहीं। अपनी सफेद छड़ी का इस्तेमाल जारी रखें। केवल ऐप पर भरोसा करके सड़क पार न करें।",
+    "readDetails": "विवरण पढ़ें"
+  },
+  "appName": "दृष्टि असिस्ट",
+  "tagline": "दृष्टिबाधित पदयात्रियों के लिए ऑन-डिवाइस खतरा चेतावनी",
+  "zones": {
+    "left": "बाएँ",
+    "center": "सामने",
+    "right": "दाएँ"
+  },
+  "lowConfidence": "पक्का नहीं, छड़ी से सावधानी रखें।"
+}

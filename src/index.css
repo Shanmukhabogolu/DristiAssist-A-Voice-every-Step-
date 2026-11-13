@@ -1,0 +1,835 @@
+@import "tailwindcss";
+@import "./tokens/tokens.css";
+
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  * {
+    box-sizing: border-box;
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: var(--duration-theme, 300ms);
+    transition-timing-function: var(--ease-state, cubic-bezier(0.4, 0, 0.2, 1));
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .font-heading,
+  .heading-playfair,
+  [data-heading] {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em;
+    color: var(--brand-ink);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* Subtitles on light backgrounds */
+  .subtitle,
+  .page-subtitle {
+    color: var(--brand-ink-muted);
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
+  }
+
+  /* Hindi Font & Script Rules */
+  [lang="hi"] {
+    font-family: var(--font-devanagari);
+    line-height: 1.75;
+    letter-spacing: normal;
+    text-transform: none !important;
+  }
+
+  [lang="hi"] h1,
+  [lang="hi"] h2,
+  [lang="hi"] h3,
+  [lang="hi"] h4,
+  [lang="hi"] h5,
+  [lang="hi"] h6 {
+    font-family: 'Playfair Display', var(--font-devanagari), serif !important;
+    letter-spacing: normal;
+    text-transform: none !important;
+  }
+
+  /* Telugu Font & Script Rules */
+  [lang="te"] {
+    font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height: 1.85;
+    letter-spacing: 0px !important;
+    text-transform: none !important;
+    font-style: normal !important;
+    font-size: 1.05em;
+  }
+
+  [lang="te"] h1,
+  [lang="te"] h2,
+  [lang="te"] h3 {
+    font-family: 'Noto Sans Telugu', system-ui, sans-serif;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-transform: none !important;
+  }
+
+  /* Classic Theme typographic details */
+  html[data-theme="classic"] [lang="te"] h1,
+  html[data-theme="classic"] [lang="te"] h2 {
+    font-family: 'Noto Serif Telugu', 'Noto Sans Telugu', serif;
+  }
+
+  html[data-theme="classic"] .section-number {
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    font-size: var(--text-mono-label);
+  }
+
+  html[data-theme="classic"] h1,
+  html[data-theme="classic"] h2,
+  html[data-theme="classic"] h3 {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Contrast Theme rules */
+  html[data-theme="contrast"] * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html[data-theme="contrast"] a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* Background Texture for Light Theme */
+.theme-dot-grid {
+  background-image: var(--bg-pattern-dot);
+  background-size: 24px 24px;
+}
+
+/* Fluid Layout Container (max 1100px) */
+.layout-container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .layout-container {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+/* Generous Section Rhythm: At least 96px desktop, 64px mobile */
+.section-spacing {
+  padding-top: var(--section-padding-mobile);
+  padding-bottom: var(--section-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: var(--section-padding-desktop);
+    padding-bottom: var(--section-padding-desktop);
+  }
+}
+
+/* Design System Surface Card */
+.ds-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  transition: border-color var(--duration-micro) var(--ease-state),
+              box-shadow var(--duration-micro) var(--ease-state),
+              background-color var(--duration-theme) var(--ease-state);
+}
+
+.ds-card-hover:hover {
+  border-color: var(--ink-muted);
+}
+
+/* ========================================================
+   UNIVERSAL BUTTON SYSTEM (150-220ms, cubic-bezier(0.22, 1, 0.36, 1))
+   ======================================================== */
+
+.btn-universal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-input);
+  text-decoration: none;
+  overflow: hidden;
+  user-select: none;
+  transition: transform 150ms cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover on pointer devices: background fill sweeps in from left (200ms); no scaling or tilting */
+@media (hover: hover) and (pointer: fine) {
+  .btn-universal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .btn-universal:hover:not(:disabled)::before {
+    transform: scaleX(1);
+    opacity: 0.12;
+  }
+
+  /* Trailing arrow icon translates 4px right on hover */
+  .btn-universal:hover:not(:disabled) .btn-arrow-icon {
+    transform: translateX(4px);
+  }
+}
+
+.btn-arrow-icon {
+  display: inline-block;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Press: translateY(1px) and slightly darker fill within 80ms; release returns in 150ms */
+.btn-universal:active:not(:disabled) {
+  transform: translateY(1px);
+  filter: brightness(0.92);
+  transition: transform 80ms cubic-bezier(0.22, 1, 0.36, 1),
+              filter 80ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Focus-visible: 2px ring with 2px offset in theme focus token; never removed */
+.btn-universal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+html[data-theme="contrast"] .btn-universal:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Loading: 2px progress hairline running along bottom edge of button */
+.btn-progress-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: currentColor;
+  opacity: 0.9;
+  width: 100%;
+  animation: btnProgressHairline 1.2s infinite ease-in-out;
+}
+
+@keyframes btnProgressHairline {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right center;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right center;
+  }
+}
+
+/* Backward compatibility for btn-micro */
+.btn-micro {
+  transition: transform var(--duration-micro) var(--ease-state),
+              background-color var(--duration-micro) var(--ease-state),
+              border-color var(--duration-micro) var(--ease-state),
+              color var(--duration-micro) var(--ease-state);
+}
+
+.btn-micro:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-micro:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Interactive link with animated underline */
+.link-animated {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-animated::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transform-origin: bottom right;
+  transition: transform var(--duration-micro) var(--ease-state);
+}
+
+.link-animated:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Tabular Numerals for Metrics and Tables */
+.tabular-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print rule divider */
+.editorial-rule {
+  border: 0;
+  height: 1px;
+  background-color: var(--border);
+  margin: 0;
+}
+
+/* ========================================================
+   DRISHTIASSIST BRAND HEADER BAND & TYPOGRAPHY
+   Matches official logo emblem (/assets/aistudio/DA_d64034e2.jpeg)
+   ======================================================== */
+
+.brand-header-band {
+  background-color: var(--band-bg);
+  padding-top: 48px;
+  padding-bottom: 48px;
+  width: 100%;
+  position: relative;
+  transition: background-color var(--duration-theme) var(--ease-state);
+}
+
+/* Transparent Header Band Variant (removes background color on specified pages) */
+.brand-header-band-transparent {
+  background-color: transparent !important;
+  border-bottom: none !important;
+}
+
+.brand-header-band-transparent .brand-band-heading {
+  color: var(--brand-ink) !important;
+}
+
+.brand-header-band-transparent .brand-band-serif-mark {
+  color: var(--brand-ink) !important;
+}
+
+.brand-header-band-transparent .brand-band-subtitle {
+  color: var(--brand-ink-muted) !important;
+}
+
+.brand-header-band-transparent .brand-band-rule {
+  background-color: var(--brand-hairline-light) !important;
+  opacity: 0.8 !important;
+}
+
+/* High-Contrast Theme Overrides for Transparent Header Band */
+html[data-theme="contrast"] .brand-header-band-transparent .brand-band-heading {
+  color: #000000 !important;
+}
+
+html[data-theme="contrast"] .brand-header-band-transparent .brand-band-serif-mark {
+  color: #000000 !important;
+}
+
+html[data-theme="contrast"] .brand-header-band-transparent .brand-band-subtitle {
+  color: #000000 !important;
+}
+
+html[data-theme="contrast"] .brand-header-band-transparent .brand-band-rule {
+  background-color: #000000 !important;
+  opacity: 1 !important;
+  height: 2px !important;
+}
+
+/* Inverted Refresh Data Button on Transparent/Light Band */
+.brand-header-band-transparent .brand-refresh-btn {
+  background-color: var(--brand-charcoal) !important;
+  color: var(--brand-offwhite) !important;
+  border: 1px solid var(--brand-charcoal) !important;
+}
+
+.brand-header-band-transparent .brand-refresh-btn:hover {
+  background-color: var(--brand-charcoal-2) !important;
+  color: var(--brand-offwhite) !important;
+}
+
+.brand-header-band-transparent .brand-refresh-btn:focus-visible {
+  outline: 2px solid var(--brand-ink) !important;
+  outline-offset: 3px !important;
+}
+
+html[data-theme="contrast"] .brand-header-band-transparent .brand-refresh-btn {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Logo-matching Geometric Sans Wordmark Heading */
+.brand-band-heading {
+  font-family: 'Poppins', 'Jost', system-ui, -apple-system, sans-serif !important;
+  color: var(--band-text) !important;
+  font-weight: 350 !important;
+  font-size: clamp(22px, 3vw, 34px) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  margin: 0;
+}
+
+/* Logo's High-Contrast Serif Word Mark prefix (optional brand accent) */
+.brand-band-serif-mark {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400 !important;
+  letter-spacing: 0.12em;
+  margin-right: 0.25em;
+  color: var(--band-text);
+}
+
+/* Subtitle on Brand Band */
+.brand-band-subtitle {
+  color: var(--band-muted) !important;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+/* Bottom Divider Rule */
+.brand-band-rule {
+  width: 100%;
+  height: var(--band-rule-width);
+  background-color: var(--band-rule);
+  margin-top: 32px;
+  transform-origin: left center;
+  transition: background-color var(--duration-theme) var(--ease-state);
+}
+
+/* Indian Language Typography Exception Rules */
+[lang="hi"] .brand-band-heading,
+[lang="te"] .brand-band-heading {
+  font-family: 'Noto Sans Devanagari', 'Noto Sans Telugu', system-ui, sans-serif !important;
+  letter-spacing: 0px !important;
+  text-transform: none !important;
+  line-height: 1.8 !important;
+  font-weight: 400 !important;
+}
+
+/* Inverted Refresh Data Button on Charcoal Band */
+.brand-refresh-btn {
+  background-color: var(--band-text);
+  color: var(--band-bg);
+  border: 1px solid var(--band-text);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 200ms var(--ease-state),
+              color 200ms var(--ease-state),
+              border-color 200ms var(--ease-state),
+              outline 200ms var(--ease-state);
+  shrink: 0;
+}
+
+.brand-refresh-btn:hover {
+  background-color: transparent;
+  color: var(--band-text);
+}
+
+.brand-refresh-btn:focus-visible {
+  outline: 2px solid var(--band-text);
+  outline-offset: 3px;
+}
+
+/* 180-degree icon rotation on click */
+.rotate-180-once {
+  transform: rotate(180deg);
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Calm Entrance Animations */
+@keyframes bandSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bandRuleDraw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-band-heading {
+  animation: bandSlideUp 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-band-subtitle {
+  opacity: 0;
+  animation: bandSlideUp 500ms cubic-bezier(0.16, 1, 0.3, 1) 80ms forwards;
+}
+
+.animate-band-rule {
+  animation: bandRuleDraw 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  .animate-band-heading,
+  .animate-band-subtitle {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .animate-band-rule {
+    animation: none !important;
+    transform: none !important;
+  }
+  .rotate-180-once {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+html[data-reduced-motion="true"] .animate-band-heading,
+html[data-reduced-motion="true"] .animate-band-subtitle {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html[data-reduced-motion="true"] .animate-band-rule {
+  animation: none !important;
+  transform: none !important;
+}
+
+html[data-reduced-motion="true"] .rotate-180-once {
+  transform: none !important;
+  transition: none !important;
+}
+
+
+/* ========================================================
+   SITE-WIDE FRAME & IMAGE CURSOR HOVER ANIMATIONS
+   Elevated micro-interactions with hardware-accelerated transitions
+   ======================================================== */
+
+/* 1. Universal Image & Visual Media Hover */
+img,
+picture,
+figure,
+svg.media-frame,
+.hover-frame,
+[data-visual-frame] {
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+img:hover,
+picture:hover,
+figure:hover {
+  transform: scale(1.025);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+}
+
+/* 2. Interactive Frames & Cards Site-Wide */
+.interactive-frame,
+.ds-card,
+.ds-card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.interactive-frame:hover,
+.ds-card:hover,
+.ds-card-hover:hover {
+  transform: translateY(-3px) scale(1.012);
+  border-color: var(--accent);
+  box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.12),
+              0 0 0 1px var(--accent);
+}
+
+/* 3. Subtle Shimmer / Scanline Sheen over frames on hover */
+.interactive-frame::before,
+.ds-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.interactive-frame:hover::before,
+.ds-card:hover::before {
+  left: 170%;
+  transition: left 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 4. Child Image / Graphic Subtle Zoom when parent frame is hovered */
+.interactive-frame img,
+.interactive-frame video,
+.interactive-frame svg:not(.lucide),
+.ds-card img,
+.ds-card video,
+.ds-card svg:not(.lucide) {
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 350ms ease;
+  will-change: transform;
+}
+
+.interactive-frame:hover img,
+.interactive-frame:hover video,
+.ds-card:hover img,
+.ds-card:hover video {
+  transform: scale(1.035);
+}
+
+.interactive-frame:hover svg:not(.lucide),
+.ds-card:hover svg:not(.lucide) {
+  transform: scale(1.02);
+}
+
+/* 5. Radar, Waypoint & Viewport Frames */
+.radar-zone-frame {
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms ease;
+  will-change: transform, box-shadow;
+}
+
+.radar-zone-frame:hover {
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 10px 24px -4px rgba(31, 79, 216, 0.18),
+              0 0 0 1px var(--accent);
+}
+
+/* 6. Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  img,
+  picture,
+  figure,
+  svg.media-frame,
+  .hover-frame,
+  [data-visual-frame],
+  img:hover,
+  picture:hover,
+  figure:hover,
+  .interactive-frame,
+  .interactive-frame:hover,
+  .ds-card,
+  .ds-card:hover,
+  .ds-card-hover:hover,
+  .interactive-frame img,
+  .interactive-frame video,
+  .interactive-frame:hover img,
+  .interactive-frame:hover video,
+  .ds-card img,
+  .ds-card video,
+  .ds-card:hover img,
+  .ds-card:hover video,
+  .interactive-frame svg,
+  .ds-card svg,
+  .radar-zone-frame,
+  .radar-zone-frame:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .interactive-frame::before,
+  .ds-card::before {
+    display: none !important;
+  }
+}
+
+/* ========================================================
+   WARM CREAM HOW-IT-WORKS CARDS (Accessible Light Palette)
+   Gentle hover state (150-200ms lift & shadow), high WCAG AA/AAA contrast
+   ======================================================== */
+
+.card-warm {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 1rem;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-warm:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: #D3C5AE;
+}
+
+.card-warm-icon-chip {
+  background-color: var(--icon-chip-bg);
+  color: var(--icon-color);
+  border-radius: 0.75rem;
+}
+
+.card-warm-heading {
+  color: var(--text-heading) !important;
+}
+
+.card-warm-body {
+  color: var(--text-body) !important;
+}
+
+/* Zero-Cloud Video Privacy Guarantee Box */
+.card-privacy-box {
+  background-color: var(--privacy-bg);
+  border: 1.5px solid var(--privacy-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 1rem;
+  color: var(--privacy-text);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-privacy-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-privacy-icon-chip {
+  background-color: var(--privacy-chip-bg);
+  color: var(--privacy-text);
+  border-radius: 0.75rem;
+}
+
+.card-privacy-heading {
+  color: var(--privacy-text) !important;
+}
+
+.card-privacy-body {
+  color: var(--privacy-text) !important;
+}
+
+/* White Cane Synchronization Warning Box */
+.card-warn-box {
+  background-color: var(--warn-bg);
+  border: 1.5px solid var(--warn-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 1rem;
+  color: var(--warn-text);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-warn-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-warn-heading {
+  color: var(--warn-heading) !important;
+}
+
+.card-warn-body {
+  color: var(--warn-text) !important;
+}
+
+.card-warn-icon {
+  color: var(--warn-heading);
+}
+
+/* Respect Reduced Motion for Card Hover States */
+@media (prefers-reduced-motion: reduce) {
+  .card-warm:hover,
+  .card-privacy-box:hover,
+  .card-warn-box:hover {
+    transform: none !important;
+  }
+}
+
+html[data-reduced-motion="true"] .card-warm:hover,
+html[data-reduced-motion="true"] .card-privacy-box:hover,
+html[data-reduced-motion="true"] .card-warn-box:hover {
+  transform: none !important;
+}
+
+
+

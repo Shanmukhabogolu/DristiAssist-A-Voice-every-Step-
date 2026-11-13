@@ -1,0 +1,115 @@
+{
+  "version": "2.0.0",
+  "description": "DrishtiAssist v2 Multi-Tier Obstacle and Hazard Taxonomy",
+  "tiers": {
+    "tier1": "Default fast detector (Custom Hazard CNN + COCO base vocabulary)",
+    "tier2": "Optional Open-Vocabulary Detector (YOLO-World / OWL-ViT on user request)",
+    "tier3": "Catch-all Class-Agnostic Obstacle & Monocular Depth Fallback"
+  },
+  "classes": {
+    "wall": {
+      "tier": 1,
+      "category": "critical_hazard",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Wall", "hi": "दीवार", "te": "గోడ" }
+    },
+    "door": {
+      "tier": 1,
+      "category": "obstacle",
+      "weight": 0.9,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Door", "hi": "दरवाज़ा", "te": "తలుపు" }
+    },
+    "stairs": {
+      "tier": 1,
+      "category": "critical_hazard",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Stairs", "hi": "सीढ़ियाँ", "te": "మెట్లు" }
+    },
+    "pole": {
+      "tier": 1,
+      "category": "obstacle",
+      "weight": 0.8,
+      "forbiddenForNavigation": false,
+      "announceInModes": ["walk", "verbose"],
+      "names": { "en": "Pole", "hi": "खंभा", "te": "స్తంభం" }
+    },
+    "pothole": {
+      "tier": 1,
+      "category": "critical_hazard",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Pothole", "hi": "गड्ढा", "te": "గుంత" }
+    },
+    "open_drain": {
+      "tier": 1,
+      "category": "critical_hazard",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Open drain", "hi": "खुली नाली", "te": "తెరిచి ఉన్న కాలువ" }
+    },
+    "vehicle": {
+      "tier": 1,
+      "category": "moving",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Vehicle", "hi": "गाड़ी", "te": "వాహనం" }
+    },
+    "auto_rickshaw": {
+      "tier": 1,
+      "category": "moving",
+      "weight": 1.0,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Auto rickshaw", "hi": "ऑटो रिक्शा", "te": "ఆటో రిక్షా" }
+    },
+    "street_light": {
+      "tier": 1,
+      "category": "obstacle",
+      "weight": 0.8,
+      "forbiddenForNavigation": false,
+      "announceInModes": ["walk", "verbose"],
+      "names": { "en": "Street light", "hi": "स्ट्रीट लाइट", "te": "వీధి దీపం" }
+    },
+    "barrier": {
+      "tier": 1,
+      "category": "critical_hazard",
+      "weight": 0.85,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Barrier", "hi": "रुकावट", "te": "అడ్డంకి" }
+    },
+    "animal": {
+      "tier": 1,
+      "category": "moving",
+      "weight": 0.7,
+      "forbiddenForNavigation": false,
+      "announceInModes": ["walk", "verbose"],
+      "names": { "en": "Animal", "hi": "जानवर", "te": "జంతువు" }
+    },
+    "person": {
+      "tier": 1,
+      "category": "person",
+      "weight": 0.5,
+      "forbiddenForNavigation": false,
+      "announceInModes": ["walk", "verbose"],
+      "names": { "en": "Person", "hi": "व्यक्ति", "te": "వ్యక్తి" }
+    },
+    "unknown_obstacle": {
+      "tier": 3,
+      "category": "obstacle",
+      "weight": 0.75,
+      "forbiddenForNavigation": true,
+      "announceInModes": ["walk", "quiet", "verbose"],
+      "names": { "en": "Obstacle", "hi": "बाधा", "te": "అడ్డంకి" }
+    }
+  }
+}

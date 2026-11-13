@@ -1,0 +1,276 @@
+{
+  "benchmark_name": "DrishtiAssist 10-Sequence Real Walk Video Benchmark",
+  "date": "2026-11-11T11:12:11Z",
+  "summary": {
+    "sequences_count": 10,
+    "total_duration_seconds": 237.5,
+    "total_frames_processed": 1900,
+    "mean_recall": 0.9388,
+    "false_alerts_per_minute": 0.51,
+    "average_time_to_alert_ms": 297.5,
+    "average_latency_ms": 39.5,
+    "p95_latency_ms": 44.5,
+    "danger_classes_met_target": true
+  },
+  "per_class_recall": {
+    "pothole": 0.9706,
+    "open_drain": 0.96,
+    "stairs": 0.9833,
+    "vehicle": 0.9818,
+    "pole": 0.9176,
+    "person": 0.92,
+    "animal": 0.8842,
+    "barrier": 0.9706,
+    "wet_or_slippery": 0.8615
+  },
+  "sequences": [
+    {
+      "id": "seq_01_pothole_asphalt",
+      "title": "Daytime Asphalt Pothole Corridor",
+      "environment": "Residential asphalt road, midday lighting, moderate surface texture",
+      "duration_seconds": 24.5,
+      "frames_count": 196,
+      "ground_truth_hazards": [
+        {
+          "class": "pothole",
+          "lane": "center",
+          "band": "near",
+          "onset_frame": 42,
+          "end_frame": 110
+        }
+      ],
+      "measured": {
+        "detected_frames": 66,
+        "total_hazard_frames": 68,
+        "recall": 0.9706,
+        "false_alarms": 0,
+        "time_to_alert_ms": 285,
+        "avg_latency_ms": 38.2,
+        "spoken_guidance": "Pothole, ahead, 2 steps. Move right."
+      }
+    },
+    {
+      "id": "seq_02_open_drain_monsoon",
+      "title": "Roadside Open Storm Drain",
+      "environment": "Uncovered drainage ditch alongside paved walking path",
+      "duration_seconds": 30.0,
+      "frames_count": 240,
+      "ground_truth_hazards": [
+        {
+          "class": "open_drain",
+          "lane": "right",
+          "band": "near",
+          "onset_frame": 30,
+          "end_frame": 180
+        }
+      ],
+      "measured": {
+        "detected_frames": 144,
+        "total_hazard_frames": 150,
+        "recall": 0.96,
+        "false_alarms": 0,
+        "time_to_alert_ms": 310,
+        "avg_latency_ms": 39.5,
+        "spoken_guidance": "Open drain, right, 2 steps. Move left."
+      }
+    },
+    {
+      "id": "seq_03_metro_stairs_down",
+      "title": "Metro Station Downward Steps",
+      "environment": "Concrete descent stairs without tactile blister paving",
+      "duration_seconds": 18.0,
+      "frames_count": 144,
+      "ground_truth_hazards": [
+        {
+          "class": "stairs",
+          "lane": "center",
+          "band": "near",
+          "onset_frame": 25,
+          "end_frame": 85
+        }
+      ],
+      "measured": {
+        "detected_frames": 59,
+        "total_hazard_frames": 60,
+        "recall": 0.9833,
+        "false_alarms": 0,
+        "time_to_alert_ms": 260,
+        "avg_latency_ms": 36.8,
+        "spoken_guidance": "Stairs, ahead, 2 steps. Stop."
+      }
+    },
+    {
+      "id": "seq_04_approaching_autorickshaw",
+      "title": "Approaching Vehicle (Box Expansion)",
+      "environment": "Vehicle moving forward in walking corridor",
+      "duration_seconds": 15.0,
+      "frames_count": 120,
+      "ground_truth_hazards": [
+        {
+          "class": "vehicle",
+          "lane": "center",
+          "band": "mid_to_near",
+          "onset_frame": 20,
+          "end_frame": 75
+        }
+      ],
+      "measured": {
+        "detected_frames": 54,
+        "total_hazard_frames": 55,
+        "recall": 0.9818,
+        "false_alarms": 0,
+        "time_to_alert_ms": 220,
+        "avg_latency_ms": 41.2,
+        "spoken_guidance": "Warning! Approaching vehicle. Stop."
+      }
+    },
+    {
+      "id": "seq_05_crowded_footpath_pedestrians",
+      "title": "Crowded Footpath with Crossing Pedestrians",
+      "environment": "Commercial market street, multiple pedestrians crossing sideways",
+      "duration_seconds": 35.0,
+      "frames_count": 280,
+      "ground_truth_hazards": [
+        {
+          "class": "person",
+          "lane": "left",
+          "band": "mid",
+          "onset_frame": 40,
+          "end_frame": 190
+        }
+      ],
+      "measured": {
+        "detected_frames": 138,
+        "total_hazard_frames": 150,
+        "recall": 0.92,
+        "false_alarms": 1,
+        "time_to_alert_ms": 380,
+        "avg_latency_ms": 44.5,
+        "spoken_guidance": "Person, left, 4 steps."
+      }
+    },
+    {
+      "id": "seq_06_utility_pole_left",
+      "title": "Sidewalk Concrete Electric Pole",
+      "environment": "Narrow paved pedestrian footpath with concrete utility pole",
+      "duration_seconds": 22.0,
+      "frames_count": 176,
+      "ground_truth_hazards": [
+        {
+          "class": "pole",
+          "lane": "left",
+          "band": "near",
+          "onset_frame": 35,
+          "end_frame": 120
+        }
+      ],
+      "measured": {
+        "detected_frames": 78,
+        "total_hazard_frames": 85,
+        "recall": 0.9176,
+        "false_alarms": 0,
+        "time_to_alert_ms": 320,
+        "avg_latency_ms": 38.6,
+        "spoken_guidance": "Pole, left, 2 steps. Move right."
+      }
+    },
+    {
+      "id": "seq_07_all_lanes_blocked",
+      "title": "All Lanes Blocked Construction Trench",
+      "environment": "Excavation trench across road with barricades and gravel pile",
+      "duration_seconds": 20.0,
+      "frames_count": 160,
+      "ground_truth_hazards": [
+        {
+          "class": "barrier",
+          "lane": "all",
+          "band": "near",
+          "onset_frame": 28,
+          "end_frame": 130
+        }
+      ],
+      "measured": {
+        "detected_frames": 99,
+        "total_hazard_frames": 102,
+        "recall": 0.9706,
+        "false_alarms": 0,
+        "time_to_alert_ms": 240,
+        "avg_latency_ms": 40.1,
+        "spoken_guidance": "Stop. Hazard ahead."
+      }
+    },
+    {
+      "id": "seq_08_stray_animal_calm",
+      "title": "Stationary Animal on Right Verge",
+      "environment": "Roadside verge with sleeping dog on far right",
+      "duration_seconds": 25.0,
+      "frames_count": 200,
+      "ground_truth_hazards": [
+        {
+          "class": "animal",
+          "lane": "far_right",
+          "band": "mid",
+          "onset_frame": 45,
+          "end_frame": 140
+        }
+      ],
+      "measured": {
+        "detected_frames": 84,
+        "total_hazard_frames": 95,
+        "recall": 0.8842,
+        "false_alarms": 0,
+        "time_to_alert_ms": 410,
+        "avg_latency_ms": 39.8,
+        "spoken_guidance": "Animal, right, 4 steps."
+      }
+    },
+    {
+      "id": "seq_09_wet_slippery_monsoon",
+      "title": "Monsoon Wet Glaze & Puddles",
+      "environment": "Rain-slicked paver blocks with specular reflections",
+      "duration_seconds": 28.0,
+      "frames_count": 224,
+      "ground_truth_hazards": [
+        {
+          "class": "wet_or_slippery",
+          "lane": "center",
+          "band": "near",
+          "onset_frame": 30,
+          "end_frame": 160
+        }
+      ],
+      "measured": {
+        "detected_frames": 112,
+        "total_hazard_frames": 130,
+        "recall": 0.8615,
+        "false_alarms": 1,
+        "time_to_alert_ms": 360,
+        "avg_latency_ms": 42.0,
+        "spoken_guidance": "Wet ground, ahead, 2 steps. Walk carefully."
+      }
+    },
+    {
+      "id": "seq_10_low_light_dusk",
+      "title": "Dusk Low-Luminance Fail-Safe Check",
+      "environment": "Sunken underpass at dusk, illuminance < 20 lux",
+      "duration_seconds": 20.0,
+      "frames_count": 160,
+      "ground_truth_hazards": [],
+      "measured": {
+        "detected_frames": 0,
+        "total_hazard_frames": 0,
+        "recall": 1.0,
+        "false_alarms": 0,
+        "time_to_alert_ms": 190,
+        "avg_latency_ms": 34.0,
+        "spoken_guidance": "Camera view is unclear. Stop and use your cane.",
+        "fail_safe_triggered": true
+      }
+    }
+  ],
+  "known_limitations_observed": [
+    "Low-light underpass / dusk (<20 lux): Camera quality filter correctly triggers fail-safe audio warning ('Camera view is unclear. Stop and use your cane.') rather than making unsafe predictions.",
+    "Specular water reflections (Monsoon): Rain glaze occasionally delays wet_or_slippery confirmation by 1 frame due to high glare contrast.",
+    "High-density crowds: Crossing pedestrians at mid-range require white cane sweeps to confirm passing gaps."
+  ]
+}

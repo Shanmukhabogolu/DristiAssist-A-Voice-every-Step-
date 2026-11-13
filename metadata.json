@@ -1,0 +1,6 @@
+{
+  "name": "DrishtiAssist - Accessible Real-Time Hazard Detection & Scene Reader",
+  "description": "Accessible on-device hazard detection, sign reading, and scene description in English and Hindi for blind and low-vision individuals.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

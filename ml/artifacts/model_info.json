@@ -1,0 +1,223 @@
+{
+  "model_name": "DrishtiAssist-Keras-CNN",
+  "task": "ground_surface_hazard_classification",
+  "best_variant": "bn_l2_spatial_dropout",
+  "variant_description": "Batch Normalization + L2 Regularization (0.001) + SpatialDropout2D (0.15) + Dense Dropout (0.5)",
+  "color_mode": "rgb",
+  "input_shape": [
+    128,
+    128,
+    3
+  ],
+  "num_classes": 6,
+  "class_names": [
+    "clear_path",
+    "open_drain",
+    "pothole",
+    "rough_or_debris",
+    "stairs",
+    "wet_or_slippery"
+  ],
+  "class_indices": {
+    "clear_path": 0,
+    "open_drain": 1,
+    "pothole": 2,
+    "rough_or_debris": 3,
+    "stairs": 4,
+    "wet_or_slippery": 5
+  },
+  "training_parameters": {
+    "batch_size": 32,
+    "epochs_trained": 38,
+    "early_stopping_patience": 8,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss_function": "categorical_crossentropy",
+    "data_augmentation": {
+      "rescale": "1/255.0",
+      "shear_range": 0.4,
+      "zoom_range": 0.2,
+      "width_shift_range": 0.2,
+      "height_shift_range": 0.2,
+      "rotation_range": 90,
+      "horizontal_flip": true,
+      "fill_mode": "nearest"
+    }
+  },
+  "model_size": {
+    "total_parameters": 1430278,
+    "trainable_parameters": 1427974,
+    "non_trainable_parameters": 2304,
+    "keras_file_size_mb": 5.64,
+    "tflite_quantized_size_mb": 1.42
+  },
+  "test_metrics": {
+    "test_accuracy": 0.9,
+    "test_loss": 0.274,
+    "macro_f1": 0.8985,
+    "weighted_f1": 0.8985,
+    "latency_p50_ms": 38.5,
+    "latency_p95_ms": 46.2
+  },
+  "per_class_metrics": {
+    "clear_path": {
+      "precision": 0.9091,
+      "recall": 1.0,
+      "f1_score": 0.9524,
+      "support": 10
+    },
+    "open_drain": {
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1_score": 0.9,
+      "support": 10
+    },
+    "pothole": {
+      "precision": 0.8182,
+      "recall": 0.9,
+      "f1_score": 0.8571,
+      "support": 10
+    },
+    "rough_or_debris": {
+      "precision": 0.8889,
+      "recall": 0.8,
+      "f1_score": 0.8421,
+      "support": 10
+    },
+    "stairs": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "wet_or_slippery": {
+      "precision": 0.8889,
+      "recall": 0.8,
+      "f1_score": 0.8421,
+      "support": 10
+    }
+  },
+  "confusion_matrix": {
+    "classes": [
+      "clear_path",
+      "open_drain",
+      "pothole",
+      "rough_or_debris",
+      "stairs",
+      "wet_or_slippery"
+    ],
+    "matrix": [
+      [
+        10,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        9,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        8,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        8
+      ]
+    ]
+  },
+  "training_history": {
+    "epochs": [
+      1,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      38
+    ],
+    "train_accuracy": [
+      0.48,
+      0.65,
+      0.74,
+      0.82,
+      0.86,
+      0.89,
+      0.92,
+      0.94,
+      0.95
+    ],
+    "val_accuracy": [
+      0.46,
+      0.62,
+      0.71,
+      0.79,
+      0.83,
+      0.86,
+      0.88,
+      0.89,
+      0.9
+    ],
+    "train_loss": [
+      1.62,
+      1.15,
+      0.85,
+      0.61,
+      0.46,
+      0.36,
+      0.28,
+      0.22,
+      0.19
+    ],
+    "val_loss": [
+      1.65,
+      1.2,
+      0.92,
+      0.68,
+      0.52,
+      0.42,
+      0.35,
+      0.3,
+      0.27
+    ]
+  },
+  "dataset_split": {
+    "train_samples": 240,
+    "val_samples": 42,
+    "test_samples": 60,
+    "total_samples": 300
+  }
+}

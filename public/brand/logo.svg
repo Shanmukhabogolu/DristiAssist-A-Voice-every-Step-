@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#2B2B2B"/>
+  
+  <!-- Central White Cane Vertical Line with Top/Bottom Dots -->
+  <line x1="200" y1="110" x2="200" y2="260" stroke="#E8E6E1" stroke-width="2"/>
+  <circle cx="200" cy="110" r="3.5" fill="#E8E6E1"/>
+  <circle cx="200" cy="260" r="3.5" fill="#E8E6E1"/>
+
+  <!-- Monogram D and A -->
+  <!-- Top Portion of D -->
+  <path d="M 90 135 L 140 135 C 172 135 182 155 182 180 L 155 180 C 155 162 147 150 132 150 L 115 150 L 115 180 L 90 180 Z" fill="#E8E6E1"/>
+  
+  <!-- Bottom Portion of D -->
+  <path d="M 90 205 L 115 205 L 115 235 L 132 235 C 147 235 155 223 155 205 L 182 205 C 182 230 172 250 140 250 L 90 250 Z" fill="#E8E6E1"/>
+
+  <!-- Top Portion of A -->
+  <path d="M 252 135 L 238 180 L 260 180 L 252 152 L 264 180 L 286 180 Z" fill="#E8E6E1"/>
+
+  <!-- Bottom Portion of A -->
+  <path d="M 228 205 L 206 250 L 236 250 L 246 226 L 274 226 L 284 250 L 314 250 L 292 205 Z" fill="#E8E6E1"/>
+
+  <!-- Middle Horizontal Charcoal Gap Strip for wordmark -->
+  <rect x="80" y="182" width="240" height="20" fill="#2B2B2B"/>
+
+  <!-- Wordmark DRISHTIASSIST in geometric sans -->
+  <text x="200" y="197" font-family="'Poppins', 'Jost', system-ui, sans-serif" font-size="13" font-weight="400" fill="#E8E6E1" text-anchor="middle" letter-spacing="0.28em">DRISHTIASSIST</text>
+
+  <!-- Tagline below -->
+  <text x="200" y="290" font-family="'Poppins', 'Jost', system-ui, sans-serif" font-size="9" font-weight="400" fill="#B5B2AB" text-anchor="middle" letter-spacing="0.28em">A VOICE FOR EVERY STEP</text>
+</svg>

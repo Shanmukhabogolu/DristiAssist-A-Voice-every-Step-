@@ -1,0 +1,305 @@
+/* ==========================================================================
+   DRISHTIASSIST DESIGN SYSTEM TOKENS
+   Strict 3-theme architecture: 'light' (modern, airy), 'classic' (editorial, print), 'contrast' (AAA)
+   ========================================================================== */
+
+:root {
+  /* Spacing Scale (8px system) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Layout geometry */
+  --content-max-width: 1200px;
+  --gutter-mobile: 24px;
+  --gutter-desktop: 32px;
+  --section-padding-mobile: 64px;
+  --section-padding-desktop: 96px;
+
+  /* Fluid typography */
+  --text-display: clamp(3rem, 5.5vw, 5.5rem);      /* 48px - 88px */
+  --text-h1: clamp(2.25rem, 3.8vw, 3.5rem);        /* 36px - 56px */
+  --text-h2: clamp(1.75rem, 2.6vw, 2.5rem);        /* 28px - 40px */
+  --text-h3: clamp(1.375rem, 1.8vw, 1.75rem);      /* 22px - 28px */
+  --text-body: clamp(1.0625rem, 1.1vw, 1.125rem);  /* 17px - 18px */
+  --text-small: 0.875rem;                          /* 14px */
+  --text-mono-label: 0.8125rem;                    /* 13px */
+
+  /* Motion Timing & Easings */
+  --ease-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro: 150ms;
+  --duration-theme: 300ms;
+  --duration-reveal: 500ms;
+
+  /* Z-Index Ladder */
+  --z-base: 0;
+  --z-elevated: 10;
+  --z-sticky: 30;
+  --z-header: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+
+  /* ========================================================================
+     DRISHTIASSIST BRAND LOGO PALETTE (Source of Truth: DA.jpeg)
+     Charcoal background with warm off-white lettering
+     ======================================================================== */
+  --brand-charcoal:        #2B2B2B;   /* logo background */
+  --brand-charcoal-2:      #353535;   /* raised surfaces on charcoal */
+  --brand-offwhite:        #E8E6E1;   /* logo lettering */
+  --brand-offwhite-muted:  #B5B2AB;   /* secondary text on charcoal */
+  --brand-hairline-dark:   #555250;   /* thin rules on charcoal */
+  --brand-ink:             #2B2B2B;   /* text on light backgrounds */
+  --brand-ink-muted:       #5E5A53;   /* secondary text on light backgrounds */
+  --brand-hairline-light:  #D9D0BF;   /* thin rules on cream/light backgrounds */
+
+  /* Backward compatibility aliases */
+  --brand-paper:           var(--brand-offwhite);
+  --brand-muted:           var(--brand-offwhite-muted);
+  --brand-rule:            var(--brand-hairline-dark);
+
+  /* Header & Footer Brand Variables */
+  --header-bg:             var(--brand-charcoal);
+  --header-text:           var(--brand-offwhite);
+  --header-muted:          var(--brand-offwhite-muted);
+  --header-border:         var(--brand-hairline-dark);
+
+  --footer-bg:             var(--brand-charcoal);
+  --footer-text:           var(--brand-offwhite);
+  --footer-muted:          var(--brand-offwhite-muted);
+  --footer-border:         var(--brand-hairline-dark);
+
+  /* Header Band Theme Variables */
+  --band-bg:               var(--brand-charcoal);
+  --band-text:             var(--brand-offwhite);
+  --band-muted:            var(--brand-offwhite-muted);
+  --band-rule:             var(--brand-hairline-dark);
+  --band-rule-width:       1px;
+
+  /* ========================================================================
+     WARM CREAM CONTENT & CARD DESIGN TOKENS
+     Matches warm cream aesthetic with high contrast & accessible legibility
+     ======================================================================== */
+  --bg-page:               #F4EFE8;          /* warm cream page background */
+  --card-bg:               #FFFBF5;          /* soft warm white */
+  --card-border:           #E6DCCB;          /* subtle warm border */
+  --card-shadow:           0 2px 10px rgba(60, 45, 20, 0.08);
+  --card-shadow-hover:     0 8px 24px rgba(60, 45, 20, 0.12);
+  --text-heading:          #1A2238;          /* deep navy, high contrast */
+  --text-body:             #4A4F5E;          /* readable muted slate */
+  --icon-chip-bg:          #F6E3B8;          /* soft amber tint */
+  --icon-color:            #B7791F;          /* deeper amber for icons */
+  --privacy-bg:            #E6F2EA;          /* soft green tint */
+  --privacy-border:        #3F8F6B;
+  --privacy-text:          #1F4D3A;          /* deep forest green, high contrast */
+  --privacy-chip-bg:       #D2E7DA;          /* darker green tint for icon chip */
+  --warn-bg:               #FBEBC8;          /* soft amber */
+  --warn-border:           #D9A441;
+  --warn-heading:          #7A4B00;          /* dark amber heading */
+  --warn-text:             #5C3D0A;          /* dark brown, high contrast */
+}
+
+/* --------------------------------------------------------------------------
+   THEME A: "LIGHT" (Default: Modern, Airy, Cobalt accent, Fine dot-grid)
+   -------------------------------------------------------------------------- */
+:root,
+html[data-theme="light"] {
+  --theme-name: "light";
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --surface-subtle: #F2F1EC;
+  --surface-hover: #ECEAE2;
+  --border: #E4E2DC;
+  --border-subtle: #EEECE6;
+
+  --ink: #14181F;
+  --ink-muted: #5B6472;
+  --ink-faint: #8E97A6;
+
+  --accent: #1F4FD8;
+  --accent-hover: #1840B0;
+  --accent-tint: #E8EEFC;
+  --accent-text: #FFFFFF;
+
+  --status-success: #15803D;
+  --status-warning: #B45309;
+  --status-danger: #B42318;
+  --status-danger-tint: #FEE4E2;
+
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', 'Geist Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-devanagari: 'Noto Serif Devanagari', 'Noto Sans Devanagari', serif;
+
+  --radius-card: 8px;
+  --radius-input: 8px;
+  --radius-tag: 9999px;
+  --shadow-soft: 0 1px 2px rgba(20, 24, 31, 0.06);
+
+  --rule-style: 1px solid var(--border);
+  --bg-pattern-dot: radial-gradient(rgba(20, 24, 31, 0.04) 1px, transparent 1px);
+}
+
+/* --------------------------------------------------------------------------
+   THEME B: "CLASSIC" (Editorial, Print-Inspired, Cream paper, Oxblood accent)
+   -------------------------------------------------------------------------- */
+html[data-theme="classic"] {
+  --theme-name: "classic";
+  --bg: #F4EFE6;
+  --surface: #FBF8F2;
+  --surface-subtle: #ECE4D6;
+  --surface-hover: #E3D9C7;
+  --border: #D9D0BF;
+  --border-subtle: #E6DFD2;
+
+  --ink: #1C1A17;
+  --ink-muted: #5E574C;
+  --ink-faint: #8A8172;
+
+  --accent: #7A1F2B;
+  --accent-hover: #611822;
+  --accent-tint: #F3E6E8;
+  --accent-text: #FBF8F2;
+  --accent-secondary: #2F5D50;
+
+  --status-success: #2F5D50;
+  --status-warning: #8C4700;
+  --status-danger: #7A1F2B;
+  --status-danger-tint: #F7E7E9;
+
+  --font-heading: 'Playfair Display', 'Source Serif 4', 'Newsreader', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-devanagari: 'Noto Serif Devanagari', 'Noto Sans Devanagari', serif;
+
+  --radius-card: 2px;
+  --radius-input: 2px;
+  --radius-tag: 2px;
+  --shadow-soft: none;
+
+  --rule-style: 1px solid var(--border);
+  --bg-pattern-dot: none;
+}
+
+/* --------------------------------------------------------------------------
+   THEME C: "CONTRAST" (WCAG AAA High Contrast, Pure White & Black, Blue Links)
+   -------------------------------------------------------------------------- */
+html[data-theme="contrast"] {
+  --theme-name: "contrast";
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-subtle: #F0F0F0;
+  --surface-hover: #E0E0E0;
+  --border: #000000;
+  --border-subtle: #222222;
+
+  --ink: #000000;
+  --ink-muted: #111111;
+  --ink-faint: #333333;
+
+  --accent: #0033CC;
+  --accent-hover: #002299;
+  --accent-tint: #E6EEFF;
+  --accent-text: #FFFFFF;
+
+  --status-success: #006600;
+  --status-warning: #804000;
+  --status-danger: #990000;
+  --status-danger-tint: #FFE5E5;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-devanagari: 'Noto Serif Devanagari', 'Noto Sans Devanagari', serif;
+
+  --radius-card: 0px;
+  --radius-input: 0px;
+  --radius-tag: 0px;
+  --shadow-soft: none;
+
+  --rule-style: 2px solid #000000;
+  --bg-pattern-dot: none;
+
+  /* Header Band & Layout High-Contrast Theme Overrides */
+  --header-bg: #000000;
+  --header-text: #FFFFFF;
+  --header-muted: #FFFFFF;
+  --header-border: #FFFFFF;
+
+  --footer-bg: #000000;
+  --footer-text: #FFFFFF;
+  --footer-muted: #FFFFFF;
+  --footer-border: #FFFFFF;
+
+  --band-bg: #000000;
+  --band-text: #FFFFFF;
+  --band-muted: #FFFFFF;
+  --band-rule: #FFFFFF;
+  --band-rule-width: 2px;
+
+  /* Card High-Contrast Overrides */
+  --bg-page: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --card-border: #000000;
+  --card-shadow: none;
+  --card-shadow-hover: none;
+  --text-heading: #000000;
+  --text-body: #000000;
+  --icon-chip-bg: #FFFFFF;
+  --icon-color: #000000;
+  --privacy-bg: #FFFFFF;
+  --privacy-border: #000000;
+  --privacy-text: #000000;
+  --privacy-chip-bg: #FFFFFF;
+  --warn-bg: #FFFFFF;
+  --warn-border: #000000;
+  --warn-heading: #000000;
+  --warn-text: #000000;
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  transition: background-color var(--duration-theme) var(--ease-state),
+              color var(--duration-theme) var(--ease-state);
+}
+
+/* Accessible focus outline */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+html[data-theme="contrast"] :focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 4px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Manual "Pause animations" override */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
